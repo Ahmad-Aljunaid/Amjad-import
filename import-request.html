@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب استيراد - مكتب أمجد عبد الكريم الجنيد</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .form-container {
+            max-width: 650px;
+            margin: 40px auto;
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo"><a href="index.html">مكتب أمجد عبد الكريم الجنيد</a></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="import-request.html" class="active">طلب استيراد</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">تقديم طلب استيراد جديد</h2>
+        <div class="form-container">
+            <form id="importForm">
+                <div class="form-group">
+                    <label>اسم الشركة / العميل المورد</label>
+                    <input type="text" required placeholder="أدخل الاسم التجاري أو الشخصي بالكامل">
+                </div>
+                <div class="form-group">
+                    <label>نوع البضاعة والسلع المطلوبة</label>
+                    <input type="text" required placeholder="مثال: قطع غيار مركبات، أجهزة إلكترونية">
+                </div>
+                <div class="form-group">
+                    <label>بلد المنشأ (الاستيراد منه)</label>
+                    <select>
+                        <option>الصين</option>
+                        <option>تركيا</option>
+                        <option>الإمارات العربية المتحدة</option>
+                        <option>السعودية</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>تفاصيل ومواصفات الشحنة بدقة</label>
+                    <textarea rows="5" placeholder="اكتب بالتفصيل الكميات، الأوزان، والمواصفات المطلوبة..."></textarea>
+                </div>
+                <button type="submit" class="btn-gold"
+                    style="width: 100%; border-radius: 5px; font-size: 18px; border: none; cursor: pointer;">إرسال طلب
+                    الاستيراد للمراجعة</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('importForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('تم استلام طلب الاستيراد بنجاح! سيقوم فريق مكتب أمجد الجنيد بدراسة الطلب والتواصل معكم خلال 24 ساعة.');
+            e.target.reset();
+        });
+    </script>
+</body>
+
+</html>

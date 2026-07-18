@@ -1,0 +1,157 @@
+/* @import لخط القاهرة وأيقونات Font Awesome */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+:root {
+    --primary-color: #0B192C;   /* كحلي فخم */
+    --secondary-color: #1E3E62; /* كحلي متوسط */
+    --accent-color: #D4AF37;    /* ذهبي */
+    --text-dark: #222222;
+    --text-light: #FFFFFF;
+    --bg-light: #F9F9F9;
+    --bg-white: #FFFFFF;
+    --transition: all 0.3s ease;
+}
+
+/* ثيم الوضع الليلي */
+[data-theme="dark"] {
+    --primary-color: #050C16;
+    --secondary-color: #0B192C;
+    --bg-light: #111827;
+    --bg-white: #1F2937;
+    --text-dark: #F9FAFB;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    direction: rtl;
+    text-align: right;
+    overflow-x: hidden;
+}
+
+/* شاشة التحميل Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--primary-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+.spinner {
+    width: 50px; height: 50px;
+    border: 5px solid var(--text-light);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* الهيدر والقائمة Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0; z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.logo a {
+    color: var(--accent-color);
+    font-size: 22px; font-weight: bold; text-decoration: none;
+}
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a {
+    color: var(--text-light); text-decoration: none; font-weight: 600;
+    transition: var(--transition); padding: 5px 10px;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--accent-color); }
+
+/* أزرار التحكم (الوضع الليلي والمنيو للجوال) */
+.nav-controls { display: flex; align-items: center; gap: 15px; }
+#theme-toggle { background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 18px; }
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(11, 25, 44, 0.85), rgba(11, 25, 44, 0.85)), url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1920') center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+    padding: 0 20px;
+}
+.hero h1 { font-size: 48px; margin-bottom: 20px; color: var(--text-light); }
+.hero h1 span { color: var(--accent-color); }
+.hero p { font-size: 20px; max-width: 700px; margin-bottom: 30px; }
+.btn-gold {
+    background-color: var(--accent-color); color: var(--primary-color);
+    padding: 12px 30px; border: none; font-weight: bold; font-size: 16px;
+    cursor: pointer; border-radius: 5px; text-decoration: none; transition: var(--transition);
+}
+.btn-gold:hover { background-color: var(--text-light); color: var(--primary-color); transform: translateY(-3px); }
+
+/* الأقسام العامة */
+.section { padding: 80px 5%; }
+.section-title { text-align: center; margin-bottom: 50px; font-size: 32px; position: relative; }
+.section-title::after {
+    content: ''; display: block; width: 60px; height: 3px; background: var(--accent-color); margin: 10px auto 0;
+}
+
+/* العدادات المتحركة Counters */
+.counters-container {
+    background: var(--secondary-color); color: var(--text-light);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px; text-align: center; padding: 50px 5%;
+}
+.counter-box h3 { font-size: 40px; color: var(--accent-color); margin-bottom: 10px; }
+
+/* الأزرار العائمة */
+.floating-buttons { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 2000; }
+.float-btn {
+    width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+    color: white; font-size: 24px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: var(--transition);
+}
+.float-btn:hover { transform: scale(1.1); }
+.whatsapp { background-color: #25D366; }
+.phone { background-color: #007bff; }
+.back-to-top { background-color: var(--accent-color); color: var(--primary-color); display: none; cursor: pointer;}
+
+/* الفوتر */
+footer { background: var(--primary-color); color: var(--text-light); padding: 40px 5% 20px; text-align: center; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: right; margin-bottom: 30px;}
+.footer-box h4 { color: var(--accent-color); margin-bottom: 20px; }
+.footer-box ul { list-style: none; }
+.footer-box ul li { margin-bottom: 10px; }
+.footer-box ul li a { color: #ccc; text-decoration: none; transition: var(--transition); }
+.footer-box ul li a:hover { color: var(--accent-color); }
+
+/* الـ Responsive للجوال */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* يمكن تحويلها لهامبرغر منيو بالـ JS */
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 16px; }
+}
+
+
+
+
+
+
+
+
